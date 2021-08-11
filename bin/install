@@ -17,4 +17,4 @@ echo "--------------------------------------------"
 
 cd $ASDF_INSTALL_PATH
 
-./install.sh
+sh ./install.sh
