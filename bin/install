@@ -39,3 +39,11 @@ END_TEMPLATE
     chmod a+x bin/$cmd
   esac
 done
+
+echo "------------------------------------------------------------------"
+echo "asdf-context:"
+echo ""
+echo "The asdf now manages the context commands."
+echo ""
+echo "The context commands should now simply work...."
+echo ""
