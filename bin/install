@@ -21,6 +21,21 @@ sh ./install.sh
 
 rm -rf ./bin
 
-CONTEXT_BIN_DIR=$(find -iname bin)
+CONTEXT_BIN_DIR=$(find $ASDF_INSTALL_PATH -iname bin)
 
-cp -R $CONTEXT_BIN_DIR .
+mkdir -p bin
+
+for cmd in `ls $CONTEXT_BIN_DIR` ; do
+  case $cmd in
+    *.lua)
+      ;;
+    *)
+    cat <<END_TEMPLATE > bin/$cmd
+#!/usr/bin/env bash
+# asdf-context-plugin: $cmd
+exec $CONTEXT_BIN_DIR/$cmd \$@
+END_TEMPLATE
+
+    chmod a+x bin/$cmd
+  esac
+done
