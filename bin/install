@@ -2,6 +2,7 @@
 
 # This asdf shell script installs ConTeXt
 
+echo cp -R $ASDF_DOWNLOAD_PATH $ASDF_INSTALL_PATH
 cp -R $ASDF_DOWNLOAD_PATH $ASDF_INSTALL_PATH
 
 echo "--------------------------------------------"
