@@ -2,24 +2,16 @@
 
 # This asdf shell script installs ConTeXt
 
-echo cp -R $ASDF_DOWNLOAD_PATH/* $ASDF_INSTALL_PATH
+# consider using the trap command
+# see: https://www.shellscript.sh/trap.html
+
 cp -R $ASDF_DOWNLOAD_PATH/* $ASDF_INSTALL_PATH
-
-echo "--------------------------------------------"
-
-echo $ASDF_DOWNLOAD_PATH
-ls -la $ASDF_DOWNLOAD_PATH
-echo "--------------------------------------------"
-
-echo $ASDF_INSTALL_PATH
-ls -la $ASDF_INSTALL_PATH
-echo "--------------------------------------------"
 
 cd $ASDF_INSTALL_PATH
 
 sh ./install.sh
 
-rm -rf ./bin
+rm -rf ./install.sh ./installation.pdf ./bin
 
 CONTEXT_BIN_DIR=$(find $ASDF_INSTALL_PATH -iname bin)
 
@@ -43,7 +35,7 @@ done
 echo "------------------------------------------------------------------"
 echo "asdf-context:"
 echo ""
-echo "The asdf now manages the context commands."
+echo "The asdf system now manages the context commands."
 echo ""
-echo "The context commands should now simply work...."
+echo "The context commands should now simply work..."
 echo ""
