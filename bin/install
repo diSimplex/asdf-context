@@ -18,3 +18,9 @@ echo "--------------------------------------------"
 cd $ASDF_INSTALL_PATH
 
 sh ./install.sh
+
+rm -rf ./bin
+
+CONTEXT_BIN_DIR=$(find -iname bin)
+
+cp -R $CONTEXT_BIN_DIR .

@@ -1,3 +1,7 @@
-Wikipedia https://en.wikipedia.org/wiki/ConTeXt
-Wiki https://wiki.contextgarden.net/Main_Page
-Documentation https://wiki.contextgarden.net/Documentation
+#!/bin/sh
+
+# This asdf shell script provides useful URLS for ConTeXt
+
+echo Wikipedia https://en.wikipedia.org/wiki/ConTeXt
+echo Wiki https://wiki.contextgarden.net/Main_Page
+echo Documentation https://wiki.contextgarden.net/Documentation
