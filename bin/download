@@ -1,0 +1,55 @@
+#!/bin/sh
+
+# This asdf shell script downloads the correct version of ConTeXt
+
+# NOTE: at the moment this ONLY works on Linux using an Intel or ARM
+# (raspberry pi 4) processor.
+
+# The following is modeled upon the ConTeXt install.sh script.
+
+trap 'rm -rf "$ASDF_CONTEXT_TMPDIR"' EXIT
+
+ASDF_CONTEXT_TMPDIR=$(mktemp -d /tmp/asdf-context-XXXXXX)
+ASDF_DOWNLOAD_PATH=${ASDF_DOWNLOAD_PATH-$ASDF_CONTEXT_TMPDIR}
+SYSTEM=$(uname -s)
+CPU=$(uname -m)
+PLATFORM="unknown"
+
+case "$SYSTEM" in
+  Linux)
+    if command -v ldd >/dev/null && ldd --version 2>&1 | grep -E '^musl' >/dev/null
+    then
+      exit 1
+    else
+      PLATFORM="linux"
+    fi
+    ;;
+  *)
+    exit 1
+esac
+
+case "$CPU" in
+  i*86)
+    ;;
+  x86_64|ia64)
+    PLATFORM="$PLATFORM-64"
+    ;;
+  aarch64)
+    PLATFORM="$PLATFORM-aarch64"
+    ;;
+  *)
+    exit 1
+esac
+
+cd $ASDF_DOWNLOAD_PATH
+
+wget https://lmtx.pragma-ade.nl/LMTX/install-lmtx/context-$PLATFORM.zip -O context.zip
+
+if test $? -ne 0
+then
+  rm context.zip
+  exit 1
+else
+  unzip context.zip
+  rm context.zip
+fi
