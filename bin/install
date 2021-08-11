@@ -2,6 +2,8 @@
 
 # This asdf shell script installs ConTeXt
 
+cp -R $ASDF_DOWNLOAD_PATH $ASDF_INSTALL_PATH
+
 echo "--------------------------------------------"
 
 echo $ASDF_DOWNLOAD_PATH
@@ -11,3 +13,7 @@ echo "--------------------------------------------"
 echo $ASDF_INSTALL_PATH
 ls -la $ASDF_INSTALL_PATH
 echo "--------------------------------------------"
+
+cd $ASDF_INSTALL_PATH
+
+./install.sh
