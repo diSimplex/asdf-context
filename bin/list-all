@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# This asdf shell script lists all known ConTeXt versions (which is simply
+# the current date since ConTeXt uses a continuous update system)
+
+date +"%y.%m.%d"
