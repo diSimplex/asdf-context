@@ -6,4 +6,6 @@ cd $ASDF_INSTALL_PATH
 
 CONTEXT_BIN_DIR=$(find $ASDF_INSTALL_PATH -iname bin)
 
-echo $CONTEXT_BIN_DIR
+#echo $CONTEXT_BIN_DIR
+
+echo tex/texmf-linux-64/bin
