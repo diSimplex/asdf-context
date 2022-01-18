@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# This asdf shell script lists the ConTeXt binary directories
+
+cd $ASDF_INSTALL_PATH
+
+CONTEXT_BIN_DIR=$(find $ASDF_INSTALL_PATH -iname bin)
+
+echo $CONTEXT_BIN_DIR

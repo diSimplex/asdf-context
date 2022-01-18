@@ -43,7 +43,7 @@ esac
 
 cd $ASDF_DOWNLOAD_PATH
 
-wget https://lmtx.pragma-ade.nl/LMTX/install-lmtx/context-$PLATFORM.zip -O context.zip
+wget https://lmtx.pragma-ade.nl/install-lmtx/context-$PLATFORM.zip -O context.zip
 
 if test $? -ne 0
 then
